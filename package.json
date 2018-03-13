@@ -1,10 +1,14 @@
 {
   "scripts": {
-    "start": "node src"
+    "start": "node src",
+    "start:w": "nodemon --watch src --watch conf src",
   },
   "dependencies": {
     "dotenv": "^5.0.1",
     "get-caller-file": "^1.0.2",
     "winston": "^3.0.0-rc2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.1"
   }
 }
