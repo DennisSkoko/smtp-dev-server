@@ -9,8 +9,6 @@ require('dotenv').config({
 })
 
 module.exports = () => ({
-  port: process.env.PORT || 587,
-
   logger: {
     level: process.env.LOG_LEVEL || 'info'
   },
@@ -26,5 +24,7 @@ module.exports = () => ({
     }
   },
 
-  smtp: {}
+  smtp: {
+    port: process.env.SMTP_PORT || 587,
+  }
 })

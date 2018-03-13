@@ -12,8 +12,8 @@ const modules = [
 
 const ctx = loader(modules)
 
-ctx.smtp.listen(ctx.settings.port, () => {
+ctx.smtp.listen(ctx.settings.smtp.port, () => {
   ctx.logger.info('SMTP server has started', {
-    port: ctx.settings.port
+    port: ctx.settings.smtp.port
   })
 })
