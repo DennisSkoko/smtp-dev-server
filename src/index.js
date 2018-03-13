@@ -6,6 +6,7 @@ const modules = [
   { path: '../conf/app', name: 'settings' },
   { path: 'context/logger' },
   { path: 'context/database' },
+  { path: 'context/save' },
   { path: 'context/smtp' }
 ]
 
