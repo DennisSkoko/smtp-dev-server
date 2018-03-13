@@ -1,0 +1,13 @@
+extends layout.pug
+
+block content
+  .container
+    h1.display-4.mt-3 List of mails
+    .text-right
+      a.btn.btn-danger(href='clear') Clear emails
+
+    each email in emails
+      .my-3.p-2.border
+        pre= email
+    else
+      p.text-center.lead No mails exists

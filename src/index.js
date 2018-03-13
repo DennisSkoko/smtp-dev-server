@@ -7,7 +7,9 @@ const modules = [
   { path: 'context/logger' },
   { path: 'context/database' },
   { path: 'context/save' },
-  { path: 'context/smtp' }
+  { path: 'context/smtp' },
+  { path: 'context/app' },
+  { path: 'context/http' }
 ]
 
 const ctx = loader(modules)
@@ -15,5 +17,11 @@ const ctx = loader(modules)
 ctx.smtp.listen(ctx.settings.smtp.port, () => {
   ctx.logger.info('SMTP server has started', {
     port: ctx.settings.smtp.port
+  })
+})
+
+ctx.http.listen(ctx.settings.http.port, () => {
+  ctx.logger.info('HTTP server has started', {
+    port: ctx.settings.http.port
   })
 })

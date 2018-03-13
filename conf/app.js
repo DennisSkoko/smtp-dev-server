@@ -24,7 +24,16 @@ module.exports = () => ({
     }
   },
 
+  views: {
+    path: path.join(root, 'res', 'views'),
+    engine: 'pug'
+  },
+
   smtp: {
-    port: process.env.SMTP_PORT || 587,
+    port: process.env.SMTP_PORT || 587
+  },
+
+  http: {
+    port: process.env.HTTP_PORT || 80
   }
 })
