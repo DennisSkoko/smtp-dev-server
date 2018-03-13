@@ -2,12 +2,15 @@
   "scripts": {
     "start": "node src",
     "start:w": "nodemon --watch src --watch conf src",
+    "db": "knex",
     "test": "eslint ."
   },
   "dependencies": {
     "dotenv": "^5.0.1",
     "get-caller-file": "^1.0.2",
+    "knex": "^0.14.4",
     "smtp-server": "^3.4.1",
+    "sqlite3": "^3.1.13",
     "winston": "^3.0.0-rc2"
   },
   "devDependencies": {
