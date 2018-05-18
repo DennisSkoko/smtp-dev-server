@@ -8,6 +8,7 @@ const modules = [
   { path: 'context/database' },
   { path: 'context/save' },
   { path: 'context/smtp' },
+  { path: 'context/mail-parser', name: 'mailParser' },
   { path: 'context/app' },
   { path: 'context/http' }
 ]

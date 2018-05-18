@@ -1,16 +1,24 @@
 'use strict'
 
 const express = require('express')
+const moment = require('moment')
 
-module.exports = ({ settings, logger, database }) => {
+module.exports = ({ settings, logger, database, mailParser }) => {
   const app = express()
 
   app.set('views', settings.views.path)
   app.set('view engine', settings.views.engine)
 
   app.get('/', (req, res, next) => {
-    database('mails').select('contents')
-      .then(emails => emails.map(email => email.contents))
+    database('mails').select()
+      .then(emails => Promise.all(
+        emails.map(email => mailParser(email.contents)
+          .then(parsed => Object.assign(parsed, {
+            id: email.id,
+            fromNow: moment(parsed.date).fromNow()
+          }))
+        )
+      ))
       .then(emails => {
         res.render('mails', { emails })
       })
