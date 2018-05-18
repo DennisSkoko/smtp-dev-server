@@ -42,6 +42,14 @@ module.exports = ({ settings, logger, database, mailParser }) => {
       .catch(next)
   })
 
+  app.get('/delete/:id', (req, res, next) => {
+    database('emails').where('id', req.params.id).delete()
+      .then(() => {
+        res.redirect('/')
+      })
+      .catch(next)
+  })
+
   app.get('/clear', (req, res, next) => {
     database('emails').delete()
       .then(() => {
