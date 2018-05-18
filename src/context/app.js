@@ -33,11 +33,15 @@ module.exports = ({ settings, logger, database, mailParser }) => {
       .catch(next)
   })
 
-  app.use((req, res) => {
-    res.status(404).render('not-found')
+  app.use((req, res, next) => {
+    next(new Error('Not-Found'))
   })
 
   app.use((err, req, res, next) => {
+    if (err.message === 'Not-Found') {
+      return res.status(404).render('not-found')
+    }
+
     logger.error('Failed to respond to a request', {
       error: err.message
     })
