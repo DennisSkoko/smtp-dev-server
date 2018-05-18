@@ -10,11 +10,11 @@ module.exports = ({ logger, settings, save }) => {
 
     onData: (stream, session, callback) => save(stream)
       .then(() => {
-        logger.info('Received a mail and successfully save it')
+        logger.info('Received a mail and successfully saved it')
         callback()
       })
       .catch(err => {
-        logger.error('Failed to save the mail', {
+        logger.error('Failed to save a mail', {
           error: err.message
         })
 
