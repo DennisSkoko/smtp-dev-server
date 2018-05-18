@@ -1,0 +1,35 @@
+extends layout.pug
+
+block content
+  .container
+    .d-flex.justify-content-between.align-items-center.mt-4
+      a.btn.btn-dark(href='/') Go back
+      a.btn.btn-danger(href='/delete/' + email.id) Delete
+
+    nav: ul.nav.nav-tabs.mt-5
+      li.nav-item
+        a.nav-item.nav-link.active(data-toggle='tab', href='#nav-plaintext') Plaintext
+      li.nav-item
+        a.nav-item.nav-link(data-toggle='tab', href='#nav-html', class=email.html ? "" : "disabled") HTML
+      li.nav-item
+        a.nav-item.nav-link(data-toggle='tab', href='#nav-raw') Raw
+
+    .tab-content
+      #nav-plaintext.tab-pane.fade.pt-4.show.active
+        p.mb-0 #[strong Subject:] #{ email.subject }
+        p.mb-0 #[strong From:] #{ email.from.text }
+        p.mb-0 #[strong To:] #{ email.to.text }
+        p.mb-0 #[strong Time:] #{ email.date }
+
+        pre.mt-3= email.text
+
+      #nav-html.tab-pane.fade.pt-4
+        p.mb-0 #[strong Subject:] #{ email.subject }
+        p.mb-0 #[strong From:] #{ email.from.text }
+        p.mb-0 #[strong To:] #{ email.to.text }
+        p.mb-0 #[strong Time:] #{ email.date }
+
+        div.mt-3!= email.html
+
+      #nav-raw.tab-pane.fade.pt-4
+        pre= email.raw

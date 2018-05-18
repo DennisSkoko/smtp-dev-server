@@ -25,6 +25,23 @@ module.exports = ({ settings, logger, database, mailParser }) => {
       .catch(next)
   })
 
+  app.get('/view/:id', (req, res, next) => {
+    database('emails').where('id', req.params.id).first()
+      .then(email => {
+        if (!email) throw new Error('Not-Found')
+
+        return mailParser(email.contents)
+          .then(parsed => Object.assign(parsed, {
+            id: email.id,
+            raw: email.contents
+          }))
+      })
+      .then(email => {
+        res.render('view', { email })
+      })
+      .catch(next)
+  })
+
   app.get('/clear', (req, res, next) => {
     database('emails').delete()
       .then(() => {
