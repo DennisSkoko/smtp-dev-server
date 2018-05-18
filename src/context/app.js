@@ -27,7 +27,7 @@ module.exports = ({ settings, logger, database, mailParser }) => {
 
   app.get('/clear', (req, res, next) => {
     database('emails').delete()
-      .then(emails => {
+      .then(() => {
         res.redirect('/')
       })
       .catch(next)
