@@ -20,7 +20,7 @@ module.exports = ({ settings, logger, database, mailParser }) => {
         )
       ))
       .then(emails => {
-        res.render('mails', { emails })
+        res.render('list', { emails })
       })
       .catch(next)
   })
