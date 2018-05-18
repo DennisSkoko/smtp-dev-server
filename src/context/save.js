@@ -8,7 +8,7 @@ module.exports = ({ database }) => mail => new Promise((resolve, reject) => {
   })
 
   mail.on('end', () => {
-    database('mails').insert({ contents })
+    database('emails').insert({ contents })
       .then(resolve, reject)
   })
 })

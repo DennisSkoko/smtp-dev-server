@@ -10,7 +10,7 @@ module.exports = ({ settings, logger, database, mailParser }) => {
   app.set('view engine', settings.views.engine)
 
   app.get('/', (req, res, next) => {
-    database('mails').select().orderBy('id', 'desc')
+    database('emails').select().orderBy('id', 'desc')
       .then(emails => Promise.all(
         emails.map(email => mailParser(email.contents)
           .then(parsed => Object.assign(parsed, {
@@ -26,7 +26,7 @@ module.exports = ({ settings, logger, database, mailParser }) => {
   })
 
   app.get('/clear', (req, res, next) => {
-    database('mails').delete()
+    database('emails').delete()
       .then(emails => {
         res.redirect('/')
       })
