@@ -21,6 +21,11 @@ Following values can be set (format: KEY=VALUE):
 - **SMTP_PORT** - Which port the SMTP server will listen to (Default: *587*)
 - **HTTP_PORT** - Which port the HTTP server will listen to (Default: *80*)
 
+## Initialize
+Before you can run the application, you will need to create the tables needed
+for the application to store the emails. To do this, simply execute
+`npm run db migrate:latest`.
+
 ## How to run
 To start the server then execute `npm start`.
 If you are developing you can execute `npm run start:w` instead.
