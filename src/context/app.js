@@ -33,7 +33,8 @@ module.exports = ({ settings, logger, database, mailParser }) => {
         return mailParser(email.contents)
           .then(parsed => Object.assign(parsed, {
             id: email.id,
-            raw: email.contents
+            raw: email.contents,
+            parsedDate: moment(parsed.date).format('kk:mm - Do MMM YYYY')
           }))
       })
       .then(email => {

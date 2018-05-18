@@ -19,7 +19,7 @@ block content
         p.mb-0 #[strong Subject:] #{ email.subject }
         p.mb-0 #[strong From:] #{ email.from.text }
         p.mb-0 #[strong To:] #{ email.to.text }
-        p.mb-0 #[strong Time:] #{ email.date }
+        p.mb-0 #[strong Time:] #{ email.parsedDate }
 
         pre.mt-3= email.text
 
@@ -27,7 +27,7 @@ block content
         p.mb-0 #[strong Subject:] #{ email.subject }
         p.mb-0 #[strong From:] #{ email.from.text }
         p.mb-0 #[strong To:] #{ email.to.text }
-        p.mb-0 #[strong Time:] #{ email.date }
+        p.mb-0 #[strong Time:] #{ email.parsedDate }
 
         div.mt-3!= email.html
 
