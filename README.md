@@ -16,10 +16,12 @@ To configure the application you can create a `.env` file
 where you can set global environment variables within the application.
 Following values can be set (format: KEY=VALUE):
 
-- **NODE_ENV** - If the application will be executed in development or production mode. (Default: *development*)
-- **LOG_LEVEL** - The minimum log level the logger will output. (Default: *info*)
-- **SMTP_PORT** - Which port the SMTP server will listen to (Default: *587*)
-- **HTTP_PORT** - Which port the HTTP server will listen to (Default: *80*)
+| Key           | Default       | Description                                                            |
+| ------------- | ------------- | ---------------------------------------------------------------------- |
+| NODE_ENV      | 'development' | If the application will be executed in development or production mode. |
+| LOG_LEVEL     | 'info'        | The minimum log level the logger will output.                          |
+| SMTP_PORT     | 587           | Which port the SMTP server will listen to.                             |
+| HTTP_PORT     | 80            | Which port the HTTP server will listen to.                             |
 
 ## Initialize
 Before you can run the application, you will need to create the tables needed
