@@ -21,7 +21,7 @@ block content
         p.mb-0 #[strong To:] #{ email.to.text }
         p.mb-0 #[strong Time:] #{ email.parsedDate }
 
-        pre.mt-3= email.text
+        .mt-3!= email.textAsHtml
 
       #nav-html.tab-pane.fade.pt-4
         p.mb-0 #[strong Subject:] #{ email.subject }
